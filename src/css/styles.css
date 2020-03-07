@@ -32,6 +32,11 @@ strong {
 body {
   font-family: var(--ff-primary); }
 
+h1,
+h2,
+h3 {
+  font-weight: normal; }
+
 .btn {
   border: none;
   padding: 2rem;
@@ -39,10 +44,64 @@ body {
   font-size: 1.8rem;
   cursor: pointer;
   transition: all .5s ease; }
+  .btn--modal {
+    padding: 1.5rem 4rem;
+    font-size: 1.4rem; }
 
 .btn:hover {
-  border-radius: .5rem;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5); }
+  transform: translateY(-0.5rem); }
+
+.modal {
+  width: 70rem;
+  background-color: white;
+  padding: 2rem;
+  border: 1px solid red; }
+  .modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem; }
+  .modal__title {
+    font-size: 1.8rem; }
+  .modal__close {
+    cursor: pointer; }
+  .modal__body {
+    display: grid;
+    grid-gap: 2.5rem;
+    grid-template-areas: "nombre apellido" "raza telefono" "pais foto" "textarea textarea"; }
+  .modal .nombre {
+    grid-area: nombre; }
+  .modal .apellido {
+    grid-area: apellido; }
+  .modal .raza {
+    grid-area: raza; }
+  .modal .telefono {
+    grid-area: telefono; }
+  .modal .pais {
+    grid-area: pais; }
+  .modal .foto {
+    grid-area: foto; }
+  .modal .textarea {
+    grid-area: textarea; }
+  .modal__input {
+    height: 5rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 10px; }
+    .modal__input::placeholder {
+      font-size: 1.8rem; }
+  .modal__textarea {
+    padding: 20px 10px; }
+    .modal__textarea::placeholder {
+      font-size: 1.8rem; }
+  .modal__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem; }
+    .modal__footer > button:first-child {
+      margin-right: 2rem; }
 
 .header {
   background-color: var(--clr-primary);
@@ -52,7 +111,8 @@ body {
   align-items: center;
   padding: 0 4rem; }
   .header__title {
-    font-size: 3.6rem; }
+    font-size: 3.6rem;
+    font-weight: normal; }
 
 .main {
   height: calc(100vh - 7rem);

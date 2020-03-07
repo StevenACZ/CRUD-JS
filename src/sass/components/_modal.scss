@@ -1,0 +1,87 @@
+/////////////////////////////////////////////////////////////
+//--(BUTTON)----------------------------------------------//
+///////////////////////////////////////////////////////////
+.modal {
+  width: 70rem;
+  background-color: white;
+  padding: 2rem;
+  border: 1px solid red;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    font-size: 1.8rem;
+  }
+
+  &__close {
+    cursor: pointer;
+  }
+  
+  &__body {
+    display: grid;
+    grid-gap: 2.5rem;
+    grid-template-areas: "nombre apellido"
+                         "raza telefono"
+                         "pais foto"
+                         "textarea textarea";
+  }
+
+  .nombre {
+    grid-area: nombre;
+  }
+  .apellido {
+    grid-area: apellido;
+  }
+  .raza {
+    grid-area: raza;
+  }
+  .telefono {
+    grid-area: telefono;
+  }
+  .pais {
+    grid-area: pais;
+  }
+  .foto {
+    grid-area: foto;
+  }
+  .textarea {
+    grid-area: textarea;
+  }
+
+  &__input {
+    height: 5rem;
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 10px;
+
+    &::placeholder {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__textarea {
+    padding: 20px 10px;
+
+    &::placeholder {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+
+    & > button:first-child {
+      margin-right: 2rem;
+    }
+  }
+}

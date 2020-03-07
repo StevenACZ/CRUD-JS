@@ -8,9 +8,13 @@
   font-size: 1.8rem;
   cursor: pointer;
   transition: all .5s ease;
+
+  &--modal {
+    padding: 1.5rem 4rem;
+    font-size: 1.4rem;
+  }
 }
 
 .btn:hover {
-  border-radius: .5rem;
-  box-shadow: 0px 2px 5px 0px rgba(0,0,0,.5);
+  transform: translateY(-.5rem);
 }
