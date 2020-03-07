@@ -1,22 +1,23 @@
 /////////////////////////////////////////////////////////////
 //--(BASE)-------------------------------------------//
 ///////////////////////////////////////////////////////////*,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-body {
-  background: var(--clr-light);
-  color: var(--clr-dark);
-  margin: 0;
-  font-family: var(--ff-primary);
-  font-size: var(--fs-body);
-  line-height: 1.6;
+html {
+  font-size: 62.5%; // 1 rem = 10px
 }
 
-section {
-  padding: 5em 2em;
+body {
+  font-size: 1.6rem;
 }
 
 img {

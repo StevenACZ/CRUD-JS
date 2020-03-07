@@ -1,0 +1,17 @@
+/////////////////////////////////////////////////////////////
+//--(FOOTER)----------------------------------------------//
+///////////////////////////////////////////////////////////
+.header {
+  background-color: var(--clr-primary);
+  height: 7rem;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  
+  padding: 0 4rem;
+
+  &__title {
+    font-size: 3.6rem;
+  }
+}
