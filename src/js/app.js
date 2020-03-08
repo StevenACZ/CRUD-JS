@@ -1,7 +1,7 @@
 //---------------------------------------------------------
 //- MODAL 
 //---------------------------------------------------------
-function Modal(element, callbackClose, callbackAccept, callbackCancel) {
+/*function Modal(element, callbackClose, callbackAccept, callbackCancel) {
   this.element = document.querySelector(element);
   this.elementClose = this.element.querySelector('.js_close');
   this.elementAccept = this.element.querySelector('.js_accept');
@@ -39,6 +39,8 @@ let modalSetPet = new Modal('.js_modalSetPet', function() {
 }, function() {
   console.log('Accept');
   container.classList.remove('active');
+  btnAddPet.style.display = 'none';
+
 }, function() {
   console.log('Cancel');
   container.classList.remove('active');
@@ -49,4 +51,28 @@ let container = document.querySelector('.container');
 btnAddPet.addEventListener('click', function() {
   modalSetPet.open();
   container.classList.add('active');
-})
+})*/
+
+function init() {
+  const form = document.querySelector('.modal__body');
+  const inputName = document.querySelector("[name='name']");
+  const inputLastname = document.querySelector("[name='lastname']");
+  const inputBreed = document.querySelector("[name='breed']");
+  const inputPhone = document.querySelector("[name='phone']");
+  const inputCountry = document.querySelector("[name='country']");
+  const inputPhoto = document.querySelector("[name='photo']");
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    console.log('inputName', inputName.value);
+    console.log('inputLastName', inputLastname.value);
+    console.log('inputName', inputBreed.value);
+    console.log('inputName', inputPhone.value);
+    console.log('inputName', inputPhoto.value);
+  })
+}
+
+
+
+
+init();

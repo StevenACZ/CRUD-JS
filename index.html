@@ -26,21 +26,20 @@
       <span class="modal__close js_close">X</span>
     </div>
 
-    <div class="modal__body">
-      <input class="modal__input nombre" type="text" placeholder="Nombre">
-      <input class="modal__input apellido" type="text" placeholder="Apellido">
-      <input class="modal__input raza" type="text" placeholder="Raza">
-      <input class="modal__input telefono" type="text" placeholder="Telefono">
-      <input class="modal__input pais" type="text" placeholder="Pais">
-      <input class="modal__input foto" type="text" placeholder="Url de Fotografía">
+    <form action="" class="modal__body">
+      <input class="modal__input nombre" name="name" required type="text" placeholder="Nombre">
+      <input class="modal__input apellido" name="lastname" required type="text" placeholder="Apellido">
+      <input class="modal__input raza" name="breed" required type="text" placeholder="Raza">
+      <input class="modal__input telefono" name="phone" required type="text" placeholder="Telefono">
+      <input class="modal__input pais" name="country" required type="text" placeholder="Pais">
+      <input class="modal__input foto" name="photo" required type="text" placeholder="Url de Fotografía">
 
-      <textarea class="modal__textarea textarea" name="" id="" cols="30" rows="10" placeholder="Sobre él/ella" style="resize: none;"></textarea>
-    </div>
-
-    <div class="modal__footer">
+      <textarea class="modal__textarea textarea" name="about" required cols="30" rows="10" placeholder="Sobre él/ella" style="resize: none;"></textarea>
+      
       <button class="btn btn--modal js_accept">Accept</button>
       <button class="btn btn--modal js_cancel">Cancel</button>
-    </div>
+    </form>
+
   </div>
 
   <script src="./src/js/app.js"></script>
