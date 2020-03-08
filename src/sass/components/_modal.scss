@@ -1,11 +1,31 @@
 /////////////////////////////////////////////////////////////
 //--(BUTTON)----------------------------------------------//
 ///////////////////////////////////////////////////////////
+.container {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0,0,0,.5);
+  z-index: -100000;
+  transition: all .3s;
+}
+
+.container.active {
+  height: 100vh;
+  z-index: 10000;
+}
+
 .modal {
-  width: 70rem;
+  position: absolute;
+  top: -100vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 60rem;
   background-color: white;
   padding: 2rem;
-  border: 1px solid red;
+  z-index: 100000000;
+  transition: all .5s;
 
   &__header {
     display: flex;
@@ -84,4 +104,11 @@
       margin-right: 2rem;
     }
   }
+}
+
+.modal.active {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
