@@ -51,6 +51,9 @@ h3 {
 .btn:hover {
   transform: translateY(-0.5rem); }
 
+.js_btnAddPetHeader {
+  display: none; }
+
 .container {
   position: absolute;
   height: 100vh;
@@ -125,11 +128,71 @@ h3 {
   left: 50%;
   transform: translate(-50%, -50%); }
 
+.pet {
+  margin: 2rem;
+  margin-top: 0;
+  position: relative;
+  width: 24rem;
+  border: 1px solid #A1A1A1;
+  transition: all .5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; }
+  .pet__edit {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 10px;
+    left: 8px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: .9rem; }
+    .pet__edit > img {
+      margin-bottom: .5rem; }
+  .pet__delete {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 10px;
+    right: 8px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: .9rem; }
+    .pet__delete > img {
+      margin-bottom: .5rem; }
+  .pet__img {
+    width: 14rem;
+    height: 14rem;
+    border-radius: 50%;
+    border: 1px solid #A1A1A1;
+    margin: 2rem 0 1rem; }
+  .pet__name {
+    font-size: 2rem;
+    line-height: 23px; }
+  .pet__country {
+    margin-top: 1rem;
+    margin-bottom: 1rem; }
+  .pet__about {
+    font-size: 1.4rem;
+    width: calc(100% - 5rem);
+    overflow-wrap: break-word;
+    margin-bottom: 2rem; }
+
+.pet:hover {
+  box-shadow: 0px 0px 8px #000000; }
+
 .header {
   background-color: var(--clr-primary);
   height: 7rem;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding: 0 4rem; }
   .header__title {
@@ -139,6 +202,8 @@ h3 {
 .main {
   height: calc(100vh - 7rem);
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-color: white; }
+  background-color: white;
+  padding: 2rem; }
