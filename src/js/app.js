@@ -48,6 +48,14 @@ let modalEditPet = new Modal('.js_modalEditPet', function() {
   container.classList.remove('active');
 });
 
+// MODAL ARE YOU SURE?
+let modalAreYouSure = new Modal('.js_modalAreYouSure', function() {
+  container.classList.remove('active');
+}, function() {
+}, function() {
+  container.classList.remove('active');
+});
+
 // BUTTON ADD PET & ADD PET HEADER
 let btnAddPet = document.querySelector('.js_btnAddPet');
 let btnAddPetHeader = document.querySelector('.js_btnAddPetHeader');
@@ -190,8 +198,15 @@ function editCard(user) {
 }
 
 function deleteCard(user) {
-  fetch(`http://localhost:3000/users/${user.id}`, {
-    method: "DELETE"
+  modalAreYouSure.open();
+  container.classList.add('active');
+  let areYouSure = document.querySelector('.js_modalAreYouSure')
+  areYouSure.querySelector('.js_accept');
+
+  areYouSure.addEventListener('click', function() {
+    fetch(`http://localhost:3000/users/${user.id}`, {
+      method: "DELETE"
+    });
   });
 }
 

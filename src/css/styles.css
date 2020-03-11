@@ -135,6 +135,18 @@ h3 {
   left: 50%;
   transform: translate(-50%, -50%); }
 
+.js_modalAreYouSure {
+  text-align: center;
+  padding: 5rem;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.3); }
+  .js_modalAreYouSure > .js_close {
+    position: absolute;
+    top: 10px;
+    right: 10px; }
+  .js_modalAreYouSure > p {
+    margin-bottom: 5rem; }
+
 .pet {
   margin: 2rem;
   margin-top: 0;
