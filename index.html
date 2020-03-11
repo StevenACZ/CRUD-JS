@@ -65,6 +65,28 @@
 
   </div>
 
+  <div class="modal js_modalEditPet">
+    <div class="modal__header">
+      <h2 class="modal__title">Editar Mascota</h2>
+      <span class="modal__close js_close">X</span>
+    </div>
+
+    <form action="" class="modal__body">
+      <input class="modal__input nombre" name="name" required type="text" placeholder="Nombre">
+      <input class="modal__input apellido" name="lastname" required type="text" placeholder="Apellido">
+      <input class="modal__input raza" name="breed" required type="text" placeholder="Raza">
+      <input class="modal__input telefono" name="phone" required type="text" placeholder="Telefono">
+      <input class="modal__input pais" name="country" required type="text" placeholder="Pais">
+      <input class="modal__input foto" name="photo" required type="text" placeholder="Url de Fotografía">
+
+      <textarea class="modal__textarea textarea" name="about" required cols="30" rows="10" placeholder="Sobre él/ella" style="resize: none;"></textarea>
+      
+      <button class="btn btn--modal js_accept">Accept</button>
+      <div class="btn btn--modal js_cancel" style="text-align: center;">Cancel</div>
+    </form>
+
+  </div>
+
   <script src="./src/js/app.js"></script>
 </body>
 </html>

@@ -32,15 +32,23 @@ Modal.prototype.registerEvents = function(callbackClose, callbackAccept, callbac
   })
 }
 
+// MODAL SET PET
 let modalSetPet = new Modal('.js_modalSetPet', function() {
   container.classList.remove('active');
 }, function() {
-
-
 }, function() {
   container.classList.remove('active');
 });
 
+// MODAL EDIT PET
+let modalEditPet = new Modal('.js_modalEditPet', function() {
+  container.classList.remove('active');
+}, function() {
+}, function() {
+  container.classList.remove('active');
+});
+
+// BUTTON ADD PET & ADD PET HEADER
 let btnAddPet = document.querySelector('.js_btnAddPet');
 let btnAddPetHeader = document.querySelector('.js_btnAddPetHeader');
 let container = document.querySelector('.container');
@@ -136,6 +144,26 @@ function insertCard(card) {
   main.appendChild(card);
 }
 
+function editCard(user) {
+  console.log('user', user);
+  editPet = document.querySelector('.js_modalEditPet');
+  const editName = editPet.querySelector("[name='name']");
+  const editLastname = editPet.querySelector("[name='lastname']");
+  const editBreed = editPet.querySelector("[name='breed']");
+  const editPhone = editPet.querySelector("[name='phone']");
+  const editCountry = editPet.querySelector("[name='country']");
+  const editPhoto = editPet.querySelector("[name='photo']");
+  const editAbout = editPet.querySelector("[name='about']");
+
+  editName.value = user.name;
+  editLastname.value = user.lastname;
+  editBreed.value = user.breed;
+  editPhone.value = user.phone;
+  editCountry.value = user.country;
+  editPhoto.value = user.photo;
+  editAbout.value = user.about;
+}
+
 function createCard(user) {
   const {
     name,
@@ -172,7 +200,9 @@ function createCard(user) {
     </p>
   `
   card.querySelector('.js_edit').addEventListener('click', function() {
-    console.log('user', user);
+    modalEditPet.open();
+    container.classList.add('active');
+    editCard(user);
   });
 
   card.querySelector('.js_delete').addEventListener('click', function() {
