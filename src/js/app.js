@@ -189,8 +189,10 @@ function editCard(user) {
   });
 }
 
-function submitEditCard() {
-  
+function deleteCard(user) {
+  fetch(`http://localhost:3000/users/${user.id}`, {
+    method: "DELETE"
+  });
 }
 
 function createCard(user) {
@@ -219,7 +221,7 @@ function createCard(user) {
     <img class="pet__img" src="${photo}" alt="A pet">
 
     <div class="pet__information">
-      <p class="pet__name">${name}</p>
+      <p class="pet__name">${name} ${lastname}</p>
       <p><span class="pet__phone">${phone}</span> | <span class="pet__email">${breed}</span></p>
       <p class="pet__country">${country}</p>
     </div>
@@ -235,7 +237,7 @@ function createCard(user) {
   });
 
   card.querySelector('.js_delete').addEventListener('click', function() {
-    console.log('user', user);
+    deleteCard(user);
   });
 
   return card;
