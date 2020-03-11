@@ -82,9 +82,9 @@ function getValues() {
 }
 
 function init() {
-  const form = document.querySelector('.modal__body');
+  const formSetPet = document.querySelector('.modal__bodySet');
 
-  form.addEventListener('submit', function(e) {
+  formSetPet.addEventListener('submit', function(e) {
     e.preventDefault();
     sendUser(getValues());
   })
@@ -146,14 +146,14 @@ function insertCard(card) {
 
 function editCard(user) {
   console.log('user', user);
-  editPet = document.querySelector('.js_modalEditPet');
-  const editName = editPet.querySelector("[name='name']");
-  const editLastname = editPet.querySelector("[name='lastname']");
-  const editBreed = editPet.querySelector("[name='breed']");
-  const editPhone = editPet.querySelector("[name='phone']");
-  const editCountry = editPet.querySelector("[name='country']");
-  const editPhoto = editPet.querySelector("[name='photo']");
-  const editAbout = editPet.querySelector("[name='about']");
+  const formEditPet = document.querySelector('.js_modalEditPet');
+  const editName = formEditPet.querySelector("[name='name']");
+  const editLastname = formEditPet.querySelector("[name='lastname']");
+  const editBreed = formEditPet.querySelector("[name='breed']");
+  const editPhone = formEditPet.querySelector("[name='phone']");
+  const editCountry = formEditPet.querySelector("[name='country']");
+  const editPhoto = formEditPet.querySelector("[name='photo']");
+  const editAbout = formEditPet.querySelector("[name='about']");
 
   editName.value = user.name;
   editLastname.value = user.lastname;
@@ -162,6 +162,35 @@ function editCard(user) {
   editCountry.value = user.country;
   editPhoto.value = user.photo;
   editAbout.value = user.about;
+
+  formEditPet.addEventListener('submit', function(e) {
+    e.preventDefault();
+  
+    fetch(`http://localhost:3000/users/${user.id}`, {
+      method: 'PUT',
+      body: JSON.stringify({
+        name: editName.value,
+        lastname: editLastname.value,
+        breed: editBreed.value,
+        phone: editPhone.value,
+        country: editCountry.value,
+        photo: editPhoto.value,
+        about: editAbout.value
+      }),
+  
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    }).then(function() {
+      return response.json()
+    }).then(function(userEdited) {
+      console.log('userCreated', userEdited);
+    })
+  });
+}
+
+function submitEditCard() {
+  
 }
 
 function createCard(user) {
