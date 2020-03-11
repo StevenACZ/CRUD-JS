@@ -1,7 +1,7 @@
 //---------------------------------------------------------
 //- MODAL 
 //---------------------------------------------------------
-/*function Modal(element, callbackClose, callbackAccept, callbackCancel) {
+function Modal(element, callbackClose, callbackAccept, callbackCancel) {
   this.element = document.querySelector(element);
   this.elementClose = this.element.querySelector('.js_close');
   this.elementAccept = this.element.querySelector('.js_accept');
@@ -25,7 +25,6 @@ Modal.prototype.registerEvents = function(callbackClose, callbackAccept, callbac
   })
   this.elementAccept.addEventListener('click', () => {
     callbackAccept();
-    this.close();
   })
   this.elementCancel.addEventListener('click', () => {
     callbackCancel();
@@ -34,24 +33,25 @@ Modal.prototype.registerEvents = function(callbackClose, callbackAccept, callbac
 }
 
 let modalSetPet = new Modal('.js_modalSetPet', function() {
-  console.log('Close');
   container.classList.remove('active');
 }, function() {
-  console.log('Accept');
-  container.classList.remove('active');
-  btnAddPet.style.display = 'none';
+
 
 }, function() {
-  console.log('Cancel');
   container.classList.remove('active');
 });
 
 let btnAddPet = document.querySelector('.js_btnAddPet');
+let btnAddPetHeader = document.querySelector('.js_btnAddPetHeader');
 let container = document.querySelector('.container');
 btnAddPet.addEventListener('click', function() {
   modalSetPet.open();
   container.classList.add('active');
-})*/
+})
+btnAddPetHeader.addEventListener('click', function() {
+  modalSetPet.open();
+  container.classList.add('active');
+})
 
 function getValues() {
   const inputName = document.querySelector("[name='name']");
@@ -136,7 +136,7 @@ function insertCard(card) {
   main.appendChild(card);
 }
 
-function createCard(values) {
+function createCard(user) {
   const {
     name,
     lastname,
@@ -145,7 +145,7 @@ function createCard(values) {
     country,
     photo,
     about
-  } = values;
+  } = user;
 
   const card = document.createElement('article');
   card.classList.add('pet');
@@ -171,6 +171,14 @@ function createCard(values) {
       ${about}
     </p>
   `
+  card.querySelector('.js_edit').addEventListener('click', function() {
+    console.log('user', user);
+  });
+
+  card.querySelector('.js_delete').addEventListener('click', function() {
+    console.log('user', user);
+  });
+
   return card;
 }
 

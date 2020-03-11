@@ -7,7 +7,7 @@
       "phone": "965338450",
       "country": "Perú",
       "photo": "https://picsum.photos/200/300",
-      "about": "sdadasd",
+      "about": "asdasd",
       "id": 1
     },
     {
@@ -17,18 +17,8 @@
       "phone": "965147217",
       "country": "Perú",
       "photo": "https://picsum.photos/200/300",
-      "about": "dasdasdasdadasdadasdasdadasdasdasdadasdadasd",
+      "about": "dasdasdadasda",
       "id": 2
-    },
-    {
-      "name": "Steven",
-      "lastname": "Coaila Zaa",
-      "breed": "sdasdas",
-      "phone": "965338450",
-      "country": "Perú",
-      "photo": "https://picsum.photos/200/300",
-      "about": "dasd",
-      "id": 3
     }
   ]
 }
