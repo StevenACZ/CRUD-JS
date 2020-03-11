@@ -78,11 +78,56 @@ function init() {
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-    insertCard(createCard(getValues()));
-    let btnAddPet = document.querySelector('.js_btnAddPet');
-    let btnAddPetHeader = document.querySelector('.js_btnAddPetHeader');
-    btnAddPet.style.display = 'none';
-    btnAddPetHeader.style.display = 'block';
+    sendUser(getValues());
+  })
+}
+
+function sendUser(user) {
+  const {
+    inputName: name,
+    inputLastname: lastname,
+    inputBreed: breed,
+    inputPhone: phone,
+    inputCountry: country,
+    inputPhoto: photo,
+    inputAbout: about
+  } = user;
+
+  fetch('http://localhost:3000/users', {
+    method: 'POST',
+    body: JSON.stringify({
+      name,
+      lastname,
+      breed,
+      phone,
+      country,
+      photo,
+      about
+    }),
+
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  }).then(function() {
+    return response.json()
+  }).then(function(userCreated) {
+    console.log('userCreated', userCreated);
+  })
+}
+
+function readUsers() {
+  fetch('http://localhost:3000/users')
+  .then(function(response) {
+    return response.json();
+  }).then(function(users){
+    users.forEach(user => {
+      let btnAddPet = document.querySelector('.js_btnAddPet');
+      let btnAddPetHeader = document.querySelector('.js_btnAddPetHeader');
+      btnAddPet.style.display = 'none';
+      btnAddPetHeader.style.display = 'block';
+
+      insertCard(createCard(user));
+    });
   })
 }
 
@@ -93,14 +138,15 @@ function insertCard(card) {
 
 function createCard(values) {
   const {
-    inputName: name,
-    inputLastname: lastname,
-    inputBreed: breed,
-    inputPhone: phone,
-    inputCountry: country,
-    inputPhoto: photo,
-    inputAbout: about
+    name,
+    lastname,
+    breed,
+    phone,
+    country,
+    photo,
+    about
   } = values;
+
   const card = document.createElement('article');
   card.classList.add('pet');
   card.innerHTML = `
@@ -128,5 +174,5 @@ function createCard(values) {
   return card;
 }
 
-
 init();
+readUsers();
